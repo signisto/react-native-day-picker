@@ -65,6 +65,7 @@ export default class Calendar extends Component {
     generateMonths(count) {
         var months = [];
         var monthIterator = new Date();
+        monthIterator.setMonth(monthIterator.getMonth() + count - 1);
 
         for (var i = 0; i < count; i++) {
             var month = this.getDates(monthIterator, this.props.startFromMonday);
@@ -80,7 +81,7 @@ export default class Calendar extends Component {
             monthIterator.setMonth(monthIterator.getMonth() - 1);
         }
 
-        return months;
+        return months.reverse();
     }
 
     getDates(month, startFromMonday) {
@@ -206,9 +207,5 @@ const styles = StyleSheet.create({
     listViewContainer: {
         backgroundColor: 'white',
         alignSelf: 'center',
-        transform: [{scaleY: -1}]
     },
-    month: {
-        transform: [{scaleY: -1}]
-    }
 });
