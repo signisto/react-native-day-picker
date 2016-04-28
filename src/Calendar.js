@@ -73,7 +73,7 @@ export default class Calendar extends Component {
                 return {
                     date: day,
                     status: this.getStatus(day, this.selectFrom, this.selectTo),
-                    disabled: day.getMonth() !== monthIterator.getMonth() || day > Date.now()
+                    disabled: day.getMonth() !== monthIterator.getMonth()
                 }
             }));
 
